@@ -1,0 +1,75 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Pokemon {
+  id                  String      @id          @default(uuid())
+  image               String
+  name                String      @unique
+  height              Int  
+  weight              Float
+  numberPokedex       Int         @unique
+  generation          Int
+  family              String
+  HP                  Int
+  Attack              Int
+  Defense             Int
+  Speed               Int
+  Special_Atck        Int
+  Special_Defs        Int
+
+
+  pokemonType         Type[]      
+  pokemonGeneration   Generation  @relation(fields: [generation], references: [numberGeneration])
+  pokemonWheater      Wheater[]   
+  PokemonFamily       Family      @relation(fields: [family], references: [id])
+
+  @@map("POK.Pokemon")
+}
+
+model Type {
+  id                  String      @id         @default(uuid())
+  idType              Int         @unique
+  description         String 
+  
+  pokemon            Pokemon[]
+
+  @@map("POK.Pokemon_Types")
+}
+
+model Generation {
+  id                  String    @id         @default(uuid())
+  numberGeneration    Int       @unique
+  description         String
+
+  pokemon            Pokemon[]
+
+  @@map("POK.Pokemon_Generation")
+}
+
+model Wheater {
+  id                  String    @id         @default(uuid())
+  wheater             String    @unique
+
+  pokemon            Pokemon[]
+
+  @@map("POK.Pokemon_Wheater")
+}
+
+model Family {
+  id                  String    @id         @default(uuid())
+  family              String    @unique
+
+  pokemon            Pokemon[]
+
+  @@map("POK.Pokemon_Family")
+}
+
+
+
+
