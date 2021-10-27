@@ -1,5 +1,5 @@
 class Wheater {
-    public id: string;
+    public id?: string;
     public wheater: string;
 
     constructor(props: Wheater) {

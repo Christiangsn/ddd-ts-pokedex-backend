@@ -1,5 +1,5 @@
 import { ITypeDTO } from './TypesDTO'
-import { prisma } from "../../database"
+
 import { ITypeRepository } from '../../repositories'
 
 class TypeServices {
