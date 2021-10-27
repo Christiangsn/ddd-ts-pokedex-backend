@@ -1,1 +1,0 @@
-export { IPokemonDTO } from './PokemonDTO'

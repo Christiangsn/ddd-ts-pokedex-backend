@@ -1,5 +1,0 @@
-export { Type } from './Type'
-export { Pokemon } from './Pokemon'
-export { GenerationEntity } from './Generation'
-export { Wheater } from './Wheater'
-export { Family } from './Family'
